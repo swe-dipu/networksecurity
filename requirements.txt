@@ -5,7 +5,8 @@ pymongo[srv]==3.11
 pymongo
 certifi
 scikit-learn
-pickle
+#pickle
 pyaml
+mlflow
 
 ## -e .
