@@ -14,6 +14,10 @@ from networksecurity.utils.ml_utlis.metric.classification_metric import get_clas
 
 import mlflow
 
+import dagshub
+dagshub.init(repo_owner='swe-dipu', repo_name='networksecurity', mlflow=True)
+
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsClassifier
@@ -120,6 +124,9 @@ class ModelTrainer:
 
         Network_Model = NetworkModel(preprocessor= preprocessor, model= best_model)
         save_object(self.model_trainer_config.trained_model_file_path, obj=NetworkModel)
+
+        #model Pusher
+        save_object("final_model/model.pkl", best_model)
 
         ## Model Trainer Artifact
         model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,

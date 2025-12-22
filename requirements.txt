@@ -8,5 +8,11 @@ scikit-learn
 #pickle
 pyaml
 mlflow
+dagshub
+fastapi
+uvicorn
+
+python-multipart
+
 
 ## -e .
